@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+
+</head>
+<body>
+
+<button id="btn01">Basico</button>
+<button id="btn02">Titulo abajo</button>
+<button id="btn03">Titulo Icono</button>
+<button id="btn04">Imagen</button>
+<button id="btn05">Con HTML</button>
+<button id="btn06">Posicionado</button>
+<button id="btn07">Animado</button>
+<button id="btn08">Confirmacion</button>
+<button id="btn09">Opcion Cancelar</button>
+<button id="btn10">Imagen Personalizada</button>
+<button id="btn11">Animado</button>
+<button id="btn12">Temporizado</button>
+<br>
+<hr>
+<br>
+<button id="btn13">Basico</button>
+<button id="btn14">Titulo abajo</button>
+<button id="btn15">Titulo Icono</button>
+<button id="btn16">Imagen</button>
+<button id="btn17">Con HTML</button>
+<button id="btn18">Posicionado</button>
+<button id="btn19">Animado</button>
+<button id="btn20">Confirmacion</button>
+<button id="btn21">Opcion Cancelar</button>
+<button id="btn22">Imagen Personalizada</button>
+<button id="btn23">Animado</button>
+<button id="btn24">Temporizado</button>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		  $("#btn01").click(function(){
+				  Swal('Any fool can use a computer')
+		  });
+		  $("#btn02").click(function(){
+				    Swal(
+					  'The Internet?',
+					  'That thing is still around?',
+					  'question'
+					);
+		  });
+		  $("#btn03").click(function(){
+				    Swal({
+					  type: 'error',
+					  title: 'Oops...',
+					  text: 'Something went wrong!',
+					  footer: '<a href>Why do I have this issue?</a>'
+					});
+		  });
+		  $("#btn04").click(function(){
+				    Swal({
+					  imageUrl: 'https://placeholder.pics/svg/300x1500',
+					  imageHeight: 1500,
+					  imageAlt: 'A tall image'
+					});
+		  });
+		  $("#btn05").click(function(){
+				    Swal({
+					  title: '<strong>HTML <u>example</u></strong>',
+					  type: 'info',
+					  html:
+					    'You can use <b>bold text</b>, ' +
+					    '<a href="//github.com">links</a> ' +
+					    'and other HTML tags',
+					  showCloseButton: true,
+					  showCancelButton: true,
+					  focusConfirm: false,
+					  confirmButtonText:
+					    '<i class="fa fa-thumbs-up"></i> Great!',
+					  confirmButtonAriaLabel: 'Thumbs up, great!',
+					  cancelButtonText:
+					    '<i class="fa fa-thumbs-down"></i>',
+					  cancelButtonAriaLabel: 'Thumbs down',
+					});
+		  });
+		  $("#btn06").click(function(){
+				    Swal({
+					  position: 'top-end',
+					  type: 'success',
+					  title: 'Your work has been saved',
+					  showConfirmButton: false,
+					  timer: 1500
+					});
+
+		  });
+		  $("#btn07").click(function(){
+				    Swal({
+					  title: 'Custom animation with Animate.css',
+					  animation: false,
+					  customClass: 'animated tada'
+					});
+
+		  });
+		  $("#btn08").click(function(){
+				    Swal({
+					  title: 'Are you sure?',
+					  text: "You won't be able to revert this!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: 'Yes, delete it!'
+					}).then((result) => {
+					  if (result.value) {
+					    Swal(
+					      'Deleted!',
+					      'Your file has been deleted.',
+					      'success'
+					    )
+					  }
+					});
+
+		  });
+		  $("#btn09").click(function(){
+				    const swalWithBootstrapButtons = Swal.mixin({
+					  confirmButtonClass: 'btn btn-success',
+					  cancelButtonClass: 'btn btn-danger',
+					  buttonsStyling: false,
+					})
+
+					swalWithBootstrapButtons({
+					  title: 'Are you sure?',
+					  text: "You won't be able to revert this!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonText: 'Yes, delete it!',
+					  cancelButtonText: 'No, cancel!',
+					  reverseButtons: true
+					}).then((result) => {
+					  if (result.value) {
+					    swalWithBootstrapButtons(
+					      'Deleted!',
+					      'Your file has been deleted.',
+					      'success'
+					    )
+					  } else if (
+					    // Read more about handling dismissals
+					    result.dismiss === Swal.DismissReason.cancel
+					  ) {
+					    swalWithBootstrapButtons(
+					      'Cancelled',
+					      'Your imaginary file is safe :)',
+					      'error'
+					    )
+					  }
+					});
+
+		  });
+		  $("#btn10").click(function(){
+				   Swal({
+					  title: 'Sweet!',
+					  text: 'Modal with a custom image.',
+					  imageUrl: 'https://unsplash.it/400/200',
+					  imageWidth: 400,
+					  imageHeight: 200,
+					  imageAlt: 'Custom image',
+					  animation: false
+					});
+
+		  });
+		  $("#btn11").click(function(){
+				    Swal({
+					  title: 'Custom width, padding, background.',
+					  width: 600,
+					  padding: '3em',
+					  background: '#fff url(/images/trees.png)',
+					  backdrop: `
+					    rgba(0,0,123,0.4)
+					    url("/images/nyan-cat.gif")
+					    center left
+					    no-repeat
+					  `
+					});
+
+		  });
+		  $("#btn12").click(function(){
+				   let timerInterval
+					Swal({
+					  title: 'Auto close alert!',
+					  html: 'I will close in <strong></strong> seconds.',
+					  timer: 2000,
+					  onBeforeOpen: () => {
+					    Swal.showLoading()
+					    timerInterval = setInterval(() => {
+					      Swal.getContent().querySelector('strong')
+					        .textContent = Swal.getTimerLeft()
+					    }, 100)
+					  },
+					  onClose: () => {
+					    clearInterval(timerInterval)
+					  }
+					}).then((result) => {
+					  if (
+					    // Read more about handling dismissals
+					    result.dismiss === Swal.DismissReason.timer
+					  ) {
+					    console.log('I was closed by the timer')
+					  }
+					});
+
+		  });
+
+		
+
+
+	});
+
+
+
+</script>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		  $("#btn13").click(function(){
+				  Swal('Any fool can use a computer')
+		  });
+		  $("#btn14").click(function(){
+				    Swal(
+					  'The Internet?',
+					  'That thing is still around?',
+					  'question'
+					);
+		  });
+		  $("#btn15").click(function(){
+				    Swal({
+					  type: 'error',
+					  title: 'Oops...',
+					  text: 'Something went wrong!',
+					  footer: '<a href>Why do I have this issue?</a>',
+					  toast:true
+					});
+		  });
+		  $("#btn16").click(function(){
+				    Swal({
+					  imageUrl: 'https://www.google.com/search?q=trailer+de+dragon+ball+super+broly&tbm=isch&tbs=simg:CAQSlQEJ6hUD0hyfkk4aiQELEKjU2AQaAggVDAsQsIynCBpiCmAIAxIogBf6Fo0RgxehHqkF_1RaREf0fgwz1IeMh6iPyI_1Mj8CPpI_1EjxSb4IRowKjn549dYMh0oFIWhzFjaH5PTak7FB4u1dUfRZ3WavJiz9TTesYHAr4caIW9MUQHoIAQMCxCOrv4IGgoKCAgBEgSm-oIxDA&sa=X&ved=0ahUKEwjxia3elcjfAhUKpFkKHV3VC3QQwg4IKSgA',
+					  imageHeight: 1500,
+					  imageAlt: 'A tall image',
+					  toast:true
+					});
+		  });
+		  $("#btn17").click(function(){
+				    Swal({
+					  title: '<strong>HTML <u>example</u></strong>',
+					  type: 'info',
+					  html:
+					    'You can use <b>bold text</b>, ' +
+					    '<a href="//github.com">links</a> ' +
+					    'and other HTML tags',
+					  showCloseButton: true,
+					  showCancelButton: true,
+					  focusConfirm: false,
+					  confirmButtonText:
+					    '<i class="fa fa-thumbs-up"></i> Great!',
+					  confirmButtonAriaLabel: 'Thumbs up, great!',
+					  cancelButtonText:
+					    '<i class="fa fa-thumbs-down"></i>',
+					  cancelButtonAriaLabel: 'Thumbs down',
+					});
+		  });
+		  $("#btn18").click(function(){
+				    Swal({
+					  position: 'top-end',
+					  type: 'success',
+					  title: 'Your work has been saved',
+					  showConfirmButton: false,
+					  timer: 1500,
+					   toast:true
+					});
+
+		  });
+		  $("#btn19").click(function(){
+				    Swal({
+					  title: 'Custom animation with Animate.css',
+					  animation: false,
+					  customClass: 'animated tada'
+					});
+
+		  });
+		  $("#btn20").click(function(){
+				    Swal({
+					  title: 'Are you sure?',
+					  text: "You won't be able to revert this!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: 'Yes, delete it!'
+					}).then((result) => {
+					  if (result.value) {
+					    Swal(
+					      'Deleted!',
+					      'Your file has been deleted.',
+					      'success'
+					    )
+					  }
+					});
+
+		  });
+		  $("#btn21").click(function(){
+				    const swalWithBootstrapButtons = Swal.mixin({
+					  confirmButtonClass: 'btn btn-success',
+					  cancelButtonClass: 'btn btn-danger',
+					  buttonsStyling: false,
+					})
+
+					swalWithBootstrapButtons({
+					  title: 'Are you sure?',
+					  text: "You won't be able to revert this!",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonText: 'Yes, delete it!',
+					  cancelButtonText: 'No, cancel!',
+					  reverseButtons: true
+					}).then((result) => {
+					  if (result.value) {
+					    swalWithBootstrapButtons(
+					      'Deleted!',
+					      'Your file has been deleted.',
+					      'success'
+					    )
+					  } else if (
+					    // Read more about handling dismissals
+					    result.dismiss === Swal.DismissReason.cancel
+					  ) {
+					    swalWithBootstrapButtons(
+					      'Cancelled',
+					      'Your imaginary file is safe :)',
+					      'error'
+					    )
+					  }
+					});
+
+		  });
+		  $("#btn22").click(function(){
+				   Swal({
+					  title: 'Sweet!',
+					  text: 'Modal with a custom image.',
+					  imageUrl: 'https://unsplash.it/400/200',
+					  imageWidth: 400,
+					  imageHeight: 200,
+					  imageAlt: 'Custom image',
+					  animation: false
+					});
+
+		  });
+		  $("#btn23").click(function(){
+				    Swal({
+					  title: 'Custom width, padding, background.',
+					  width: 600,
+					  padding: '3em',
+					  background: '#fff url(/images/trees.png)',
+					  backdrop: `
+					    rgba(0,0,123,0.4)
+					    url("/images/nyan-cat.gif")
+					    center left
+					    no-repeat
+					  `
+					});
+
+		  });
+		  $("#btn24").click(function(){
+				   let timerInterval
+					Swal({
+					  title: 'Auto close alert!',
+					  html: 'I will close in <strong></strong> seconds.',
+					  timer: 2000,
+					  onBeforeOpen: () => {
+					    Swal.showLoading()
+					    timerInterval = setInterval(() => {
+					      Swal.getContent().querySelector('strong')
+					        .textContent = Swal.getTimerLeft()
+					    }, 100)
+					  },
+					  onClose: () => {
+					    clearInterval(timerInterval)
+					  }
+					}).then((result) => {
+					  if (
+					    // Read more about handling dismissals
+					    result.dismiss === Swal.DismissReason.timer
+					  ) {
+					    console.log('I was closed by the timer')
+					  }
+					});
+
+		  });
+
+		
+
+
+	});
+
+
+
+
+
+</script>
+</body>
+</html>
